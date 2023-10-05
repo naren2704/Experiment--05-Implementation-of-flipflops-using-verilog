@@ -102,38 +102,106 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+1.Create a New Project:
 
+Open Quartus and create a new project by selecting "File" > "New Project Wizard."
+Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+
+2.Create a New Design File:
+
+Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+
+3.Write the Combinational Logic Code:
+
+Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+
+4.Compile the Project:
+
+To compile the project, click on "Processing" > "Start Compilation" in the menu.
+Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+
+5.Analyze and Fix Errors:*
+
+If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+Review and fix any issues in your code if necessary.
+View the RTL diagram
+.
+6.*Verification:
+
+Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+Give the Input Combinations according to the Truth Table amd then simulate the Output Waveform.
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by:NARENDRAN B 
+RegisterNumber:212222240069 
+
+ ## SR FLIPFLOPS CODE:
+```
+ 
+module flipflop(s,r,Q,Qbar,clk);
+input s,r,clk;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=s|(Q&(~r));
+Qbar=r|(Qbar&(~s));
+end
+endmodule
+```
+## JK FLIPFLIPS CODE:
+```
+
+module JK(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+```
 
 
 
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+## SR:
 
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/4b348409-557d-4c4f-b333-5e2b33fca396)
 
+## JK:
 
-
-
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/a8923e3a-631e-46af-8240-ca9fa4db456a)
 
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+## SR:
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/61038b28-3d55-46ba-8f78-9e166a8cd060)
+
+## JK:
+
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/e8042121-517c-423e-bf8d-561291707643)
 
 
 
-
-
+## RESULT:
+Thus the flipflops circuits are designed and the truth tables is verified using quartus software.
 
 
 
