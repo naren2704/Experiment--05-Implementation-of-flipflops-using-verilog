@@ -171,8 +171,38 @@ Qbar=((~J)&(Qbar))|K&(~Qbar);
 end
 endmodule
 ```
+## D FLIPFLOPS CODE:
+```
 
+module ex5(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
+```
+## T FLIPFLOPS CODE:
+```
 
+module ex5(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end
+endmodule
+```
 
 
 
@@ -184,20 +214,35 @@ endmodule
 ## JK:
 
 ![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/a8923e3a-631e-46af-8240-ca9fa4db456a)
+## D FLIPFLOPS:
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/5675b47b-005e-4e09-ab98-0dcf834d3a67)
+
+## T FLIPFLOPS:
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/363dabb1-f619-4e7a-aa2b-b8acb73a2928)
 
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
-## SR:
+## SR FLIPFLOPS:
 
 ![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/61038b28-3d55-46ba-8f78-9e166a8cd060)
 
-## JK:
+## JK FLIPFLOPS:
 
 
 ![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/e8042121-517c-423e-bf8d-561291707643)
 
+## D FLIPFLOPS:
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/94e18a17-29ef-4db0-a4a7-adb2f39bfec8)
+
+
+## T FLIPFLOPS:
+
+![image](https://github.com/naren2704/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118706984/f6f41852-67d0-4d4d-b760-2a76dcbef2f1)
 
 
 ## RESULT:
@@ -205,4 +250,4 @@ Thus the flipflops circuits are designed and the truth tables is verified using 
 
 
 
-### RESULTS 
+
